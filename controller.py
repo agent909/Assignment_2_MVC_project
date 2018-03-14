@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -11,7 +11,12 @@ import model
 
 @app.route('/')
 def index():
-    return '<h1>My Home Page</h1>', 404
+    return render_template('index.html')
+
+
+# @app.route('/incubators')
+# def incubators():
+#     return render_template('incubators.html')
 
 
 if __name__=='__main__':
