@@ -7,7 +7,7 @@
 {% block body %}
 
 <div class="container">
-    <div class="row">
+    <div class="row" style="margin-bottom:20px;">
         <div class="col-sm-3">
             Total Incubator: 2
         </div>
@@ -24,9 +24,35 @@
         {% endfor %}
 
     </div>
-    <div class="row" style="">
 
+    <div class="row" style="padding-top:10px;border:2px solid gray;border-radius:5px;box-shadow:1px 5px 20px 1px;">
+        {% for incubator in my_incubators %}
+
+        <div class="col-sm-3">
+            <a href="/">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        {{incubator.name}}
+                    </div>
+                    <div class="panel-body">
+
+                        Date Created: {{incubator.date_created}}<br/>
+                        Size: {{incubator.rows}} x {{incubator.column}}<br/>
+                        <center>Total Harvest</center><br/>
+                        Balot: {{incubator.balot}}<br/>
+                        Penoy: {{incubator.penoy}}<br/>
+                        Freska: {{incubator.freska}}<br/>
+                        Echo: {{incubator.echo}}<br/>
+                        Matra: {{incubator.matra}}<br/>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        {% endfor %}
     </div>
+
 </div>
 
 

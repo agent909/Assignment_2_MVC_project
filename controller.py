@@ -22,13 +22,12 @@ def index():
 @app.route('/incubators', methods=('POST','GET'))
 def incubators():
     form = IncubatorForm()
+    my_incubators=model.GetIncubators()
     if form.validate_on_submit():
         if model.AddIncubator(form):
             flash("Incubator has successfuly been created.")
         return redirect(url_for('incubators'))
-    # elif( form.validate_on_submit()==False):
-    #     flash("Invalid Input! Incubator not created.")
-    return render_template('incubators.html', form=form)
+    return render_template('incubators.html', form=form, my_incubators=my_incubators)
 
 
 if __name__=='__main__':

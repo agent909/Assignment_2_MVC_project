@@ -52,6 +52,10 @@ def AddIncubator(form):
         db.session.rollback()
         return False
 
+def GetIncubators():
+    my_incubators = Incubator.query.all()
+    return(my_incubators)
+
 
 db.create_all()
 
