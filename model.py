@@ -1,14 +1,12 @@
 from controller import db
 from datetime import datetime
 
-currentId = 1
 
 class Incubator(db.Model):
     __tablename__ = 'incubators'
-    global currentId
     id = db.Column(db.Integer, primary_key = True)
     tray_id= db.relationship('Tray', backref='incubator')
-    name = db.Column(db.String(30), unique=True, index=True, default='Incubator '+str(currentId))
+    name = db.Column(db.String(30), unique=False, index=True, default='Incubator')
     rows = db.Column(db.Integer, nullable=False)
     column = db.Column(db.Integer, nullable=False)
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -17,7 +15,6 @@ class Incubator(db.Model):
     matra = db.Column(db.Integer, default = 0)
     echo = db.Column(db.Integer, default = 0)
     penoy = db.Column(db.Integer, default = 0)
-    currentId+=1
 
     def __repr__(self):
         return '<Role %r>' %self.name
@@ -45,4 +42,16 @@ class Daily_Harvest(db.Model):
     def __repr__(self):
         return '<Role %r>' %self.name
 
+def AddIncubator(form):
+    new_incubator = Incubator(name=form.name.data, rows=form.rows.data, column=form.column.data)
+    try:
+        db.session.add(new_incubator)
+        db.session.commit()
+        return True
+    except:
+        db.session.rollback()
+        return False
+
+
 db.create_all()
+

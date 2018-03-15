@@ -6,31 +6,23 @@
 
 {% block body %}
 
-
-<div class="jumbotron text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p>
-</div>
-
 <div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="text-align:center;">Go for a harvest<br/>check incubators</div>
+                <div class="panel-body">
+                    <button class="btn" style="width:100%;">Incubator 1</button><br><br>
+                    <button class="btn" style="width:100%;">Incubator 2</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="row" style="text-align:center;">
+                <h1>Welcome to cracker, <br/>designed for a balot vendor like you</h1>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-  </div>
 </div>
-
 
 {% endblock %}
