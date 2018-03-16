@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 
-from forms import IncubatorForm
+from forms import IncubatorForm, TrayReport
 
 import model
 
@@ -32,11 +32,13 @@ def incubators():
     return render_template('incubators.html', form=form, my_incubators=my_incubators)
 
 
-@app.route('/incubators/1')
-def incubator():
-    # my_incubator = model.FetchIncubator(incub_id)
-    # return render_template('incubate.html', my_incubator=my_incubator)
-    return render_template('incubate.html')
+@app.route('/incubators/<int:incubator_id>')
+def incubate(incubator_id):
+    tray_report = TrayReport()
+    my_incubator = model.fetch_incubator(incubator_id)
+    total_eggs = model.get_incubator_eggs(incubator_id)
+    return render_template('incubate.html', my_incubator=my_incubator, total_eggs=total_eggs[0],
+                           trays=total_eggs[1], tray_report=tray_report)
 
 
 if __name__ == '__main__':

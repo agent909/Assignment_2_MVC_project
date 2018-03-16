@@ -81,7 +81,6 @@ def get_incubator_eggs(incubator_id):
     total_eggs = 0
     for x in trays:
         total_eggs += x.eggs_contained
-    return total_eggs
-
+    return total_eggs,trays
 
 db.create_all()

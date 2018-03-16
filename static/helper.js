@@ -21,8 +21,8 @@ $(function(){
 
         if(name!='' && rows!='' && columns!=''){
             $("#IncubatorForm").submit();
-            alert("what???");
         }
-
     });
+
+
 });
