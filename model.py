@@ -65,8 +65,23 @@ def get_incubators():
 
 
 def fetch_incubator(incubator_id):
-    my_incubator = Incubator.query.filter_by(incubator_id).first()
+    my_incubator = Incubator.query.filter_by(id=incubator_id).first()
     return my_incubator
+
+
+def contain_eggs(tray_id, eggs):
+    tray = Tray.query.filter_by(id=tray_id).first()
+    tray.eggs_contained = eggs
+    db.session.add(tray)
+    db.session.commit()
+
+
+def get_incubator_eggs(incubator_id):
+    trays = Tray.query.filter_by(incubator_id=incubator_id).all()
+    total_eggs = 0
+    for x in trays:
+        total_eggs += x.eggs_contained
+    return total_eggs
 
 
 db.create_all()
