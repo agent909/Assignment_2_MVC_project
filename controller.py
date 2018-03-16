@@ -22,9 +22,9 @@ def index():
 @app.route('/incubators', methods=('POST', 'GET'))
 def incubators():
     form = IncubatorForm()
-    my_incubators = model.GetIncubators()
+    my_incubators = model.get_incubators()
     if form.validate_on_submit():
-        if model.AddIncubator(form):
+        if model.add_incubator(form):
             flash("Incubator has successfuly been created.")
         else:
             flash("Error Occured, Incubator not created")
@@ -37,6 +37,7 @@ def incubator():
     # my_incubator = model.FetchIncubator(incub_id)
     # return render_template('incubate.html', my_incubator=my_incubator)
     return render_template('incubate.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
