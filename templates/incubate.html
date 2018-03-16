@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block head %} {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    
+    <div class="row">
+        <span style="font-size:20px;">Incubator 1 | Contains: 490 Eggs</span>
+    </div>
+    <div class="row"><!--style="border:2px solid #745555;border-radius:5px;box-shadow:1px 5px 20px 1px; #777777;"-->
+
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-1" style="padding:0;margin:0;text-align:center;font-size:25px;">
+
+                        </div>
+                        <div class="col-sm-2" style="text-align:center;font-size:25px;margin-bottom:15px;">
+                            1
+                        </div>
+                        <div class="col-sm-2" style="text-align:center;font-size:25px;margin-bottom:15px;">
+                            2
+                        </div>
+                        <div class="col-sm-2" style="text-align:center;font-size:25px;margin-bottom:15px;">
+                            3
+                        </div>
+                        <div class="col-sm-2" style="text-align:center;font-size:25px;margin-bottom:15px;">
+                            4
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom:15px;">
+                        <div class="col-sm-1" style="padding:0;margin:0;text-align:center;font-size:25px;">
+                            1 :
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="col-sm-8" style="padding:0;">
+                                <button class="btn btn-success" style="width:100%;">16th day</button>
+                            </div>
+                            <div class="col-sm-4" style="padding:0;">
+                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="col-sm-8" style="padding:0;">
+                                <button class="btn btn-success" style="width:100%;">16th day</button>
+                            </div>
+                            <div class="col-sm-4" style="padding:0;">
+                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-2" style="text-align:center;">
+                            Overall Incubator Harvest<br/>
+                        </div>
+                        <div class="col-sm-2">
+                            Balot:
+                        </div>
+                        <div class="col-sm-2">
+                            Penoy:
+                        </div>
+                        <div class="col-sm-2">
+                            Freska:
+                        </div>
+                        <div class="col-sm-2">
+                            Echo:
+                        </div>
+                        <div class="col-sm-2">
+                            Matra:
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row">
+                <div class="panel panel-info">
+                    <div class="panel-heading" style="font-size:15px;">
+                        Ready to Harvest: <span id="ReadyHarvest">143</span>
+                    </div>
+                    <div class="panel-body">
+
+                        <label for="balot">Balot:</label>
+                        <input type="number" id="balot" class="form-control">
+
+                        <label for="penoy">Penoy:</label>
+                        <input type="number" id="penoy" class="form-control">
+
+                        <label for="freska">Freska:</label>
+                        <input type="number" id="freska" class="form-control">
+
+                        <label for="echo">Echo:</label>
+                        <input type="number" id="echo" class="form-control">
+
+                        <label for="matra">Matra:</label>
+                        <input type="number" id="matra" class="form-control">
+
+                        <center>
+                            <br/>
+                            <button class="btn btn-success">Submit Daily Report</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

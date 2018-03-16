@@ -3,32 +3,40 @@ from flask_sqlalchemy import SQLAlchemy
 
 from forms import IncubatorForm
 
+import model
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:@localhost/dbase'
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN']=True
-app.config['SECRET_KEY']='family'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/dbase'
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+app.config['SECRET_KEY'] = 'family'
 
 db = SQLAlchemy(app)
 
-import model
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/incubators', methods=('POST','GET'))
+@app.route('/incubators', methods=('POST', 'GET'))
 def incubators():
     form = IncubatorForm()
-    my_incubators=model.GetIncubators()
+    my_incubators = model.GetIncubators()
     if form.validate_on_submit():
         if model.AddIncubator(form):
             flash("Incubator has successfuly been created.")
+        else:
+            flash("Error Occured, Incubator not created")
         return redirect(url_for('incubators'))
     return render_template('incubators.html', form=form, my_incubators=my_incubators)
 
 
-if __name__=='__main__':
+@app.route('/incubators/1')
+def incubator():
+    # my_incubator = model.FetchIncubator(incub_id)
+    # return render_template('incubate.html', my_incubator=my_incubator)
+    return render_template('incubate.html')
+
+if __name__ == '__main__':
     app.run(debug=True)

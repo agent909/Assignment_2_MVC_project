@@ -29,7 +29,7 @@
         {% for incubator in my_incubators %}
 
         <div class="col-sm-3">
-            <a href="/">
+            <a href="/incubators/{{incubator.id}}">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         {{incubator.name}}
@@ -37,7 +37,7 @@
                     <div class="panel-body">
 
                         Date Created: {{incubator.date_created}}<br/>
-                        Size: {{incubator.rows}} x {{incubator.column}}<br/>
+                        Size: {{incubator.rows}} x {{incubator.columns}}<br/>
                         <center>Total Harvest</center><br/>
                         Balot: {{incubator.balot}}<br/>
                         Penoy: {{incubator.penoy}}<br/>
@@ -83,8 +83,8 @@
                             <label id="label2" style="font-size:11px;color:red;"></label>
                         </div>
                         <div class="col-sm-3 form-group">
-                            {{form.column.label}}<br/>
-                            {{form.column(style="width:100%;", class="form-control", id="columns", type="number")}}
+                            {{form.columns.label}}<br/>
+                            {{form.columns(style="width:100%;", class="form-control", id="columns", type="number")}}
                             <label id="label3" style="font-size:11px;color:red;"></label>
                         </div>
                     </div>

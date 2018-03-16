@@ -8,5 +8,5 @@ from wtforms.validators import DataRequired
 class IncubatorForm(FlaskForm):
     name = StringField('Incubator Name:', validators=[DataRequired()])
     rows = IntegerField('rows:', validators=[DataRequired()])
-    column = IntegerField('columns:', validators=[DataRequired()])
+    columns = IntegerField('columns:', validators=[DataRequired()])
     submit = SubmitField('Submit')
