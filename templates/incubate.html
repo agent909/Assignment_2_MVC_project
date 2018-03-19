@@ -36,17 +36,13 @@
                         </div>
                         {% set index = (x-1)*my_incubator.columns %}
                         {% for y in range(1,my_incubator.columns+1) %}
-                        <div class="col-sm-2">
 
-                            <div class="col-sm-8" style="padding:0;">
-                                <button class="btn btn-success" style="width:100%;">{{trays[index+y-1].id}}</button>
-                            </div>
-                            <div class="col-sm-4" style="padding:0;">
-                                <button type="button" id="{{trays[index+y-1].id}}" data-target="#edit_tray" data-toggle="modal" class="btn btn-primary">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                </button>
+                        <div class="col-sm-2">
+                            <div class="col-sm-12" style="padding:0;">
+                                <button class="btn btn-success" id="{{trays[index+y-1].id}}" data-target="#edit_tray" data-toggle="modal" style="width:100%;">{{trays[index+y-1].id}}</button>
                             </div>
                         </div>
+
                         {% endfor %}
                     </div>
                     {% endfor %}
